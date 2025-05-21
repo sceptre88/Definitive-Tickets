@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name=".gitignore" server="ftp.definitivetickets.com" local="133880041636290879" remote="130435704000000000" Dst="2" />
+<file name="CHANGELOG" server="ftp.definitivetickets.com" local="133880041637003497" remote="130435704000000000" Dst="2" />
+<file name="INSTALL" server="ftp.definitivetickets.com" local="133880041637682971" remote="130435704000000000" Dst="2" />
+<file name="LICENSE" server="ftp.definitivetickets.com" local="133880041638901615" remote="130435704000000000" Dst="2" />
+<file name="README" server="ftp.definitivetickets.com" local="133880041639616993" remote="130435704000000000" Dst="2" />
+<file name="VERSION" server="ftp.definitivetickets.com" local="133880041640476608" remote="130435704000000000" Dst="2" />
+<file name="index.php" server="ftp.definitivetickets.com" local="133880042024757213" remote="130435704000000000" Dst="2" />
+<file name="qrbitstream.php" server="ftp.definitivetickets.com" local="133880042027042676" remote="130435704000000000" Dst="2" />
+<file name="phpqrcode.php" server="ftp.definitivetickets.com" local="133880042027797633" remote="130435704000000000" Dst="2" />
+<file name="qrconfig.php" server="ftp.definitivetickets.com" local="133880042027052869" remote="130435704000000000" Dst="2" />
+<file name="qrconst.php" server="ftp.definitivetickets.com" local="133880042028900094" remote="130435704000000000" Dst="2" />
+<file name="qrencode.php" server="ftp.definitivetickets.com" local="133880042029882653" remote="130435704000000000" Dst="2" />
+<file name="qrimage.php" server="ftp.definitivetickets.com" local="133880042030074490" remote="133185780000000000" Dst="2" />
+<file name="qrinput.php" server="ftp.definitivetickets.com" local="133880042031684313" remote="130435704000000000" Dst="2" />
+<file name="qrlib.php" server="ftp.definitivetickets.com" local="133880042032017698" remote="130435704000000000" Dst="2" />
+<file name="qrmask.php" server="ftp.definitivetickets.com" local="133880042032250299" remote="130435704000000000" Dst="2" />
+<file name="qrrscode.php" server="ftp.definitivetickets.com" local="133880042034022888" remote="130435704000000000" Dst="2" />
+<file name="qrsplit.php" server="ftp.definitivetickets.com" local="133880042034419067" remote="130435704000000000" Dst="2" />
+<file name="qrspec.php" server="ftp.definitivetickets.com" local="133880042034734182" remote="130435704000000000" Dst="2" />
+<file name="qrtools.php" server="ftp.definitivetickets.com" local="133880042035915708" remote="130435704000000000" Dst="2" />
+<file name="qrvect.php" server="ftp.definitivetickets.com" local="133880042036489284" remote="130435704000000000" Dst="2" />
+</dwsync>

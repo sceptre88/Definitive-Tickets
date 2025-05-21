@@ -1,0 +1,32 @@
+/* Global Colors */
+:root {
+	--background-color: #ffffff;
+	--background-color-rgb: 255, 255, 255;
+/* 	--header-color:#073839;
+	--color-default: #000000;
+	--color-default-rgb: 0, 0, 0;
+	--color-primary: #D4003B;
+	--color-primary-rgb: 212, 0, 59;
+	--color-primary-dark: #073839;
+	--color-links: #C27780;
+	--color-links-hover: #973547;
+
+	--footer-content-color: #FF5381;
+	--color-secondary: #4FFEFE;
+	--color-secondary-rgb: 79, 254, 254; */
+	--contrast-color: #000000;
+	--contrast-color-rgb: 0, 0, 0;
+
+	--color-white: #ffffff;
+	--color-white-rgb: 255, 255, 255;
+	--color-black: #000000;
+	--color-black-rgb: 0, 0, 0;
+
+/* Not used in Showcase Website */
+/* 	--primary-color-light: #FEA7A7;
+	--color-secondary-light-rgb: 143, 159, 174;
+	--color-secondary-dark-rgb: 58, 71, 83;
+	--color-secondary-light: #FE7B7B;
+	--color-secondary-dark: #973547; */
+}
+

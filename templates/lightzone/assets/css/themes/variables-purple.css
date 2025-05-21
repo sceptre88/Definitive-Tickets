@@ -1,0 +1,29 @@
+:root {
+    --color-primary: #b88aec;
+    --color-primary-rgb: 184, 138, 236;
+    --color-primary-dark: #661F9F;
+	--color-primary-dark-rgb: 102, 31, 159;
+    --color-secondary: #FEC700;
+    --color-secondary-rgb: 247, 234, 15;
+	--color-links: var(--color-primary); 
+	--color-links-hover: var(--color-primary-dark);
+	--header-color:  var(--color-primary-dark);
+	--footer-content-color: #AD4AF8;
+	--color-footer-content-links-rgb: var(--color-white-rgb);
+	--color-footer-content-links-hover-rgb: var(--color-white-rgb);
+	--footer-legal-color: var(--color-primary-dark);
+	--button-hero: var(--color-primary);
+	--button-hero-rgb: var(--color-primary-rgb);
+	--primary-rgb: var(--color-primary-rgb);  /*Primary RGB*/
+	--header-text-color: var(--color-secondary);
+	--header-text-color-span: var(--color-white);
+	--nav-toggle: var(--color-white);
+	--footer-legal: var(--color-secondary);
+	--footer-legal-rgb: var(--color-secondary-rgb);
+	--footer-copyright: var(--color-secondary);
+	--scroll-top: var(--color-secondary);
+	--scroll-top-hover: var(--color-primary-rgb);
+	--nav-color: var(--color-white);
+	--nav-hover-color: var(--color-white);
+	--nav-hover-underline: var(--color-secondary);
+}

@@ -1,0 +1,32 @@
+[20-Apr-2023 03:08:31 UTC] PHP Fatal error:  Uncaught ArgumentCountError: mysqli_get_server_info() expects exactly 1 argument, 0 given in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/functions/general.php:1159
+Stack trace:
+#0 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/functions/general.php(1159): mysqli_get_server_info()
+#1 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/server_info.php(25): tep_get_system_information()
+#2 {main}
+  thrown in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/functions/general.php on line 1159
+[02-Jun-2023 15:28:20 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "coupon_id" in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/tweak/display/salesCoupon.php:997
+Stack trace:
+#0 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/tweak/general.php(90): salesCoupon->doEmail()
+#1 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/sales_coupon.php(20): checkAJAX('SALESCOUPON')
+#2 {main}
+  thrown in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/tweak/display/salesCoupon.php on line 997
+[07-Jun-2023 19:44:50 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "coupon_id" in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/tweak/display/salesCoupon.php:997
+Stack trace:
+#0 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/tweak/general.php(90): salesCoupon->doEmail()
+#1 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/sales_coupon.php(20): checkAJAX('SALESCOUPON')
+#2 {main}
+  thrown in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/tweak/display/salesCoupon.php on line 997
+[19-Sep-2023 11:49:39 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 12288 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/functions/db_backup.php on line 66
+[19-Sep-2023 11:51:36 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 12288 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/functions/db_backup.php on line 66
+[23-Sep-2023 02:39:12 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 12288 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/functions/db_backup.php on line 66
+[13-Nov-2023 16:06:15 UTC] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + int in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/classes/split_page_results_event.php:81
+Stack trace:
+#0 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/reports_sales_referral_sources.php(110): splitPageResultsEvent->display_links('4087', '20', '15', '')
+#1 {main}
+  thrown in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/classes/split_page_results_event.php on line 81
+[31-Jan-2024 16:17:18 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/classes/sessions.php:86
+Stack trace:
+#0 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/application_top.php(130): phpsession->start()
+#1 /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/payment_general_templates.php(33): require('/home/tixadmin/...')
+#2 {main}
+  thrown in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/includes/classes/sessions.php on line 86

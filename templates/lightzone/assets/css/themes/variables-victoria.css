@@ -1,0 +1,44 @@
+:root {
+    --color-primary: #563d7c;
+    --color-primary-rgb: 86, 61, 124;
+    --color-primary-dark: #563d7c;
+	--color-primary-dark-rgb: 86, 61, 124;
+	--color-secondary: #c0c0ff;
+	--color-secondary-rgb: 192, 192, 255;
+	--color-links: var(--color-primary); 
+	--color-links-hover: #EFF5F7;
+	--header-color:  var(--color-primary-dark);
+	--footer-content-color: #9494FF;
+	--color-footer-content-links-rgb: var(--color-white-rgb);
+	--color-footer-content-links-hover-rgb: var(--color-white-rgb);
+	--footer-legal-color: var(--color-primary-dark);
+	--button-hero: var(--color-primary);
+	--button-hero-rgb: var(--color-primary-rgb);
+	--primary-rgb: var(--color-primary-rgb);  /*Primary RGB*/
+	--header-text-color: var(--color-white);
+	--header-text-color-span: var(--color-secondary);
+	--nav-toggle: var(--color-white);
+	--footer-legal: var(--color-secondary);
+	--footer-legal-rgb: var(--color-secondary-rgb);
+	--footer-copyright: var(--color-secondary);
+	--scroll-top: var(--color-secondary);
+	--scroll-top-hover: var(--color-primary-rgb);
+	--nav-color: var(--color-white);
+	--nav-hover-color: var(--color-white);
+	--nav-hover-underline: var(--color-secondary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+.section-header h2 {
+  font-size: 32px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 20px;
+}

@@ -1,0 +1,52 @@
+:root {
+	--color-primary: #0c2e8a;
+	--color-primary-rgb: 12, 46, 138;
+	--color-primary-dark: #0c2e8a;
+	--color-primary-dark-rgb: 12, 46, 138;
+	--color-secondary: #e22a63;
+	--color-secondary-rgb: 226, 42, 99;
+	--color-links: var(--color-secondary); 
+	--color-links-hover: var(--color-primary);
+	--header-color: var(--color-white);
+	--footer-content-color: #EFF5F7;
+	--color-footer-content-links-rgb: var(--color-primary-rgb);
+	--color-footer-content-links-hover-rgb: var(--color-secondary-rgb);
+	--footer-legal-color: var(--color-primary-dark);
+	--button-hero: var(--color-primary);
+	--button-hero-rgb: var(--color-primary-rgb);
+	--primary-rgb: var(--color-primary-rgb);  /*Primary RGB*/
+	--header-text-color: var(--color-primary);
+	--header-text-color-span: var(--color-secondary);
+	--nav-toggle: var(--color-primary);
+	--footer-legal: var(--color-secondary);
+	--footer-legal-rgb: var(--color-primary-rgb);
+	--footer-copyright: var(--color-secondary);
+	--scroll-top: var(--color-secondary);
+	--scroll-top-hover: var(--color-primary-rgb);
+	--nav-color: var(--color-primary-dark);
+	--nav-hover-color: var(--color-primary-dark);
+	--nav-hover-underline: var(--color-secondary);
+}
+
+.header {
+  box-shadow: 0px 2px 20px rgba(var(--color-black-rgb), 0.1);
+}
+.section-header h2 {
+  color: var(--color-primary);
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  text-align:left;
+  font-weight: 700;
+}
+
+.header .logo h1 span {
+  font-weight: 700;
+}
+ .btn-primary {
+     background: var(--color-secondary);
+     border: 2px solid var(--color-secondary);
+}
+ .btn-primary:hover {
+     color: var(--color-secondary);
+	 border: 2px solid var(--color-secondary);
+}

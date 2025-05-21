@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="ClassDiscovery.php" server="ftp.definitivetickets.com" local="133880040340493563" remote="132898932000000000" Dst="2" />
+<file name="Exception.php" server="ftp.definitivetickets.com" local="133880040346783695" remote="132898932000000000" Dst="2" />
+<file name="HttpAsyncClientDiscovery.php" server="ftp.definitivetickets.com" local="133880040348119202" remote="132898932000000000" Dst="2" />
+<file name="HttpClientDiscovery.php" server="ftp.definitivetickets.com" local="133880040348728194" remote="132898932000000000" Dst="2" />
+<file name="MessageFactoryDiscovery.php" server="ftp.definitivetickets.com" local="133880040349158545" remote="132898932000000000" Dst="2" />
+<file name="NotFoundException.php" server="ftp.definitivetickets.com" local="133880040350604605" remote="132898932000000000" Dst="2" />
+<file name="Psr17FactoryDiscovery.php" server="ftp.definitivetickets.com" local="133880040351017914" remote="132898932000000000" Dst="2" />
+<file name="Psr18ClientDiscovery.php" server="ftp.definitivetickets.com" local="133880040351610634" remote="132898932000000000" Dst="2" />
+<file name="StreamFactoryDiscovery.php" server="ftp.definitivetickets.com" local="133880040356417917" remote="132898932000000000" Dst="2" />
+<file name="UriFactoryDiscovery.php" server="ftp.definitivetickets.com" local="133880040357605850" remote="132898932000000000" Dst="2" />
+</dwsync>

@@ -1,0 +1,58 @@
+:root {
+    --color-primary: #009B4D; /* Green */
+    --color-primary-rgb: 0, 155, 77;
+    --color-primary-dark: #003100;
+	--color-primary-dark-rgb: 0, 49, 0;
+    --color-secondary: #FFCC00; /* Yellow */
+	--color-secondary-light: #FAF5E9;
+    --color-secondary-rgb: 255, 204, 0;
+	--color-links: var(--color-primary); 
+	--color-links-hover: #FE5252;
+	--header-color: #FAF5E9;
+    --footer-content-color: #000000;
+	--color-footer-content-links-rgb: var(--color-white-rgb);
+	--color-footer-content-links-hover-rgb: var(--color-white-rgb);
+	--footer-legal-color: var(--color-primary);
+	--button-hero: var(--color-secondary);
+	--button-hero-rgb: var(--color-secondary-rgb);
+	--primary-rgb: var(--color-primary-rgb);  /*Primary RGB*/
+	--header-text-color: var(--color-primary);
+	--header-text-color-span: var(--color-secondary);
+	--nav-toggle: var(--color-black);
+	--footer-legal: var(--color-secondary);
+	--footer-legal-rgb: var(--color-secondary-rgb);
+	--footer-copyright: var(--color-secondary);
+	--scroll-top: var(--color-secondary);
+	--scroll-top-hover: var(--color-secondary-rgb);
+	--nav-color: var(--color-primary);
+	--nav-hover-color: var(--color-primary-rgb);
+	--nav-hover-underline: var(--color-primary);
+}
+
+/* Colors used: Green (#009B4D), tangerine yellow (#FFCC00), ivory (#FAF5E9) */
+.btn-primary {
+  --bs-btn-active-bg: var(--color-primary);
+  --bs-btn-active-border-color: #0a53be;
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #1D1D1D;
+  padding: 0 0 30px 0;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+#footer .credits a {
+  color: #0c2e8a;
+}

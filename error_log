@@ -1,0 +1,12 @@
+[16-Jul-2024 01:38:22 America/Denver] PHP Fatal error:  Uncaught TypeError: sizeof(): Argument #1 ($value) must be of type Countable|array, null given in /home/tixadmin/ifyac.definitivetickets.org/includes/functions/general.php:2636
+Stack trace:
+#0 /home/tixadmin/ifyac.definitivetickets.org/includes/application_top.php(677): tep_get_static_path(0)
+#1 /home/tixadmin/ifyac.definitivetickets.org/index.php(26): require('/home/tixadmin/...')
+#2 {main}
+  thrown in /home/tixadmin/ifyac.definitivetickets.org/includes/functions/general.php on line 2636
+[08-Oct-2024 09:32:17 America/Denver] PHP Fatal error:  Uncaught TypeError: sizeof(): Argument #1 ($value) must be of type Countable|array, null given in /home/tixadmin/ifyac.definitivetickets.org/includes/functions/general.php:2636
+Stack trace:
+#0 /home/tixadmin/ifyac.definitivetickets.org/includes/application_top.php(677): tep_get_static_path(0)
+#1 /home/tixadmin/ifyac.definitivetickets.org/index.php(26): require('/home/tixadmin/...')
+#2 {main}
+  thrown in /home/tixadmin/ifyac.definitivetickets.org/includes/functions/general.php on line 2636

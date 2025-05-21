@@ -1,0 +1,59 @@
+:root {
+    --color-primary: #31EC56; /* Green */
+    --color-primary-rgb: 49, 236, 86;
+    --color-primary-dark: #00A700;
+	--color-primary-dark-rgb: 0, 49, 0;
+    --color-secondary: #EF036C; /* Pink */
+	--color-secondary-light: #FCCDDF;
+    --color-secondary-rgb: 239, 3, 108;
+	--color-links: var(--color-primary); 
+	--color-links-hover: #FE5252;
+	--header-color: #000000;
+    --footer-content-color: #EE72F8;
+	--color-footer-content-links-rgb: var(--color-white-rgb);
+	--color-footer-content-links-hover-rgb: var(--color-white-rgb);
+	--footer-legal-color: var(--color-black);
+	--button-hero: var(--color-secondary);
+	--button-hero-rgb: var(--color-secondary-rgb);
+	--primary-rgb: var(--color-primary-rgb);  /*Primary RGB*/
+	--header-text-color: var(--color-primary);
+	--header-text-color-span: var(--color-white);
+	--nav-toggle: var(--color-white);
+	--footer-legal: var(--color-primary);
+	--footer-legal-rgb: var(--color-primary-rgb);
+	--footer-copyright: var(--color-primary);
+	--scroll-top: var(--color-primary);
+	--scroll-top-hover: var(--color-primary-rgb);
+	--nav-color: var(--color-white);
+	--nav-hover-color: var(--color-white);
+	--nav-hover-underline: var(--color-primary);
+}
+
+/* Colors used: Malachite green (#31EC56), razzmatazz (#EF036C), heliotrope (#EE72F8) */
+
+.btn-primary {
+  --bs-btn-active-bg: var(--color-primary);
+  --bs-btn-active-border-color: #0a53be;
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #1D1D1D;
+  padding: 0 0 30px 0;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+#footer .credits a {
+  color: #0c2e8a;
+}

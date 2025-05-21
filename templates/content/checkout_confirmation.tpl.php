@@ -1,0 +1,676 @@
+<?php 
+/*
+	Freeway eCommerce
+	http://www.openfreeway.org
+	Copyright (c) 2007 ZacWare
+
+	Released under the GNU General Public License 
+*/	
+// Check to ensure this file is included in osConcert!
+defined('_FEXEC') or die();
+
+if (($_SESSION['BoxOffice']== 999)or($_SESSION['customer_country_id']==999))
+{
+$hba='true';
+}else{
+$hba='true';	
+}
+if ($order->info['shipping_module']== 'willcall_willcall'){
+$willcall='yes';	
+}else{
+$willcall='no';	
+}
+?>
+<div class="section-header">
+<h2><?php echo HEADING_TITLE; ?></h2>
+</div>
+	<?php
+	if ($messageStack->size('security') > 0) 
+	{
+	?>
+	<div><?php echo $messageStack->output('security'); ?></div>
+	<?php
+	} 
+	?>
+
+	<div class="container">
+    <div class="card mb-4 box-shadow">
+    <div class="card-header">
+	<?php
+	if (sizeof($order->info['tax_groups']) > 1) 
+	{
+	?>
+	<?php echo '<strong>' . HEADING_PRODUCTS . '</strong>&nbsp;
+	<a href="' . tep_href_link(FILENAME_SHOPPING_CART) . '">&nbsp;<span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+
+	<?php
+	} 
+	else 
+	{
+	?>
+	<?php echo '<strong>' . HEADING_PRODUCTS . '</strong>&nbsp;<a href="' . tep_href_link(FILENAME_SHOPPING_CART) . '">
+	<span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+<?php
+	}
+?>
+	</div>
+
+	
+	<div class="card-body">
+	<table width="100%" class="table-hover">
+	<tbody>
+
+<?php
+
+
+	$dis_time_format="";	
+	if(defined('TIME_FORMAT')) $dis_time_format=TIME_FORMAT;  
+  
+	//print_r ($order->products);
+	for ($i=0, $n=count($order->products); $i<$n; $i++) 
+	{ 
+			$qty=$order->products[$i]['qty'];
+			$name=$order->products[$i]['name'];
+			$price=$currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']);
+			
+			if (($order->products[$i]['sku'] == 6)||($order->products[$i]['sku'] == 7))
+			{
+			$qty = 1;
+			}
+		######################################################
+		$id=tep_db_input($order->products[$i]['id']);
+		require_once('includes/functions/categories_lookup.php');
+		#####################################################
+		$family= '';
+        // call the new function
+        $type = $products[$i]['product_type'];
+        
+        list($heading_name, $heading_venue,  $heading_date, $heading_time) = categories_lookup();
+
+		if ($type=='F')
+		{
+		$family= '<small>'.FAMILY_TICKET.' x '.FAMILY_TICKET_QTY.'</small>';	
+		}else
+		{
+		$family= '';	
+		}
+		######################################################		
+     
+		echo '          <tr>' . "\n" .
+         '            <td style=" vertical-align: text-top;text-align:center" width="25%">
+						<span class="">' . $qty . '&nbsp;x&nbsp;</span></td>' . "\n" . 
+         '            <td width="65%" style=" vertical-align: text-top;">' . 
+		 $order->products[$i]['name'] . ' <br>
+		 <span class="smallText">' . 
+		 $heading_name . '<br> ' .  
+		 $heading_venue . ' ' .  
+		 $heading_date . ' ' .  
+		 $heading_time . ' <br>' . $family . '</span>';
+		 
+		if ($order->products[$i]['element_type']=="V")
+		{
+			if($order->products[$i]['others']['end_date'] && $order->products[$i]['others']['end_time']){	
+				$str_time=strtotime($order->products[$i]['others']['end_date'] .' '.$order->products[$i]['others']['end_time'])+60;
+				$order->products[$i]['others']['end_date']=date('Y-m-d',$str_time);
+				$order->products[$i]['others']['end_time']=date('H:i:s',$str_time); 
+			} 
+			$stime="";
+			$etime="";
+			if($order->products[$i]['others']['start_time']) {
+				$stime=date("h:i A",strtotime($order->products[$i]['others']['start_time']));
+				if($dis_time_format!="") {
+					if($dis_time_format=='24')
+						$stime=date("H:i",strtotime($order->products[$i]['others']['start_time']));
+				}
+			}
+			if($order->products[$i]['others']['end_time']) 
+			{
+				$etime=date("h:i A",strtotime($order->products[$i]['others']['end_time']));
+				if($dis_time_format!="") 
+				{
+					if($dis_time_format=='24')
+						$etime=date("H:i",strtotime($order->products[$i]['others']['end_time']));
+				}
+			}
+			echo '<br><small>&nbsp;	- '.TEXT_START_DATE.' : '. format_date($order->products[$i]['others']['start_date']) . '&nbsp;' . $stime . ' <br>&nbsp; - ' . TEXT_END_DATE .' : ' . format_date($order->products[$i]['others']['end_date']). '&nbsp;' . $etime . ' '.(($order->products[$i]['others']['resource_id'])? '<br>&nbsp; - '.tep_get_resource_name($order->products[$i]['others']['resource_id'],'resource_name').'('.$currencies->format(tep_add_tax($order->products[$i]['others']['resource_costs'],$order->products[$i]['tax'])).')':'').'</small>';
+		} 
+		if (STOCK_CHECK == 'true') 
+		{
+			echo tep_check_stock($order->products[$i]['id'], $order->products[$i]['qty']);
+		}
+
+	 	echo isset($order->products[$i]['discount_whole_text'])?'<br>' . $order->products[$i]['discount_whole_text']:'';
+
+		echo '</td>' . "\n";
+		if (sizeof($order->info['tax_groups']) > 1) 
+			echo '<td class="ot" style="vertical-align: text-top;text-align:right">&nbsp;'.TEXT_INC.'&nbsp;' . tep_display_tax_value($order->products[$i]['tax']) . '% &nbsp;</td>' . "\n";
+		echo '            <td style="vertical-align: text-top;">&nbsp;' . $price . '&nbsp;</td>' . "\n" .
+			 '          </tr>' . "\n";
+	}
+?>
+	</tbody>
+	</table>
+	
+	<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-5">
+				</div>
+				<div class="col-md-7">
+				<table width="100%" border="0">
+				<?php
+					if (MODULE_ORDER_TOTAL_INSTALLED) 
+					{
+					$order_total_modules->process();
+					echo $order_total_modules->output();
+					}
+				?>
+				</table>
+				</div>
+			</div>
+    </div>
+	</div>
+	<div class="card-deck text-left">
+    <?php
+    if ($FSESSION->get('sendto') != false) 
+	{
+      ?>
+		<?php if (HIDE_DELIVERY_ADDRESS == 'no')
+		{
+			if ($order->info['shipping_method']) 
+			{
+		?>
+			<div class="card mb-4 box-shadow">
+				<div class="card-header">
+				<?php echo '<strong>' . HEADING_DELIVERY_ADDRESS . '</strong>&nbsp;<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS) . '"><span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+				</div>
+				<div class="card-body">
+				<?php //echo tep_address_format($order->delivery['format_id'], $order->delivery, 1, ' ', '<br />'); 
+
+				$session_address=(int)$FSESSION->get('sendto');
+				// //$session_address="(int)$FSESSION->get('billto')";
+				
+				// if (($_SESSION['BoxOffice']== 999)or($_SESSION['customer_country_id']==999))
+						// {
+						 // $session_address=(int)$FSESSION->get('sendto');
+						// }
+						// else{
+						// $session_address=(int)$FSESSION->get('sendto');	
+						// }
+				
+
+				$addresses_query = tep_db_query("select address_book_id, entry_firstname as firstname, entry_lastname as lastname, entry_customer_email as customer_email, entry_customer_phone as customer_phone,entry_company as company, entry_street_address as street_address, entry_suburb as suburb, entry_city as city, entry_postcode as postcode, entry_state as state, entry_zone_id as zone_id, entry_country_id as country_id from " . TABLE_ADDRESS_BOOK . " where address_book_id = '" . $session_address . "'");
+						
+						$addresses = tep_db_fetch_array($addresses_query);
+						$format_id = tep_get_address_format_id($addresses['country_id']);
+						echo tep_address_format($format_id, $addresses, true, '<br>', ', ');
+						//box office address tweak 
+						if (($_SESSION['BoxOffice']== 999)or($_SESSION['customer_country_id']==999))
+						{
+						 $_SESSION['billto_array'] = $_SESSION['sendto_array']= $addresses; 
+						}
+				?>
+				</div>
+			</div>
+			  <?php
+			}
+		}
+	}
+    ?>
+    </div>
+	
+	<?php
+	if ($order->info['shipping_method']) 
+	{
+	?>
+    <div class="card box-shadow">
+		<div class="card-header">
+		<?php echo '<strong>' . HEADING_SHIPPING_METHOD . '</strong>&nbsp;<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING) . '">
+		<span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+		</div>
+		<div class="card-body">
+		<?php echo $order->info['shipping_method']; ?>
+		</div>
+	</div>
+	<?php
+	}
+	?>
+	</div>
+	<?php
+	#############################################################
+		if(REMINDER_3=='yes')
+		{
+		include_once ('wannabuy');
+		wannabuy();
+		}
+	?>
+	<div class="container" style="padding:0">
+	<div class="row no-gutters">
+		<div class="col-md-6">
+		<div class="card box-shadow">
+		<div class="card-header">
+		<?php echo '<strong>' . HEADING_BILLING_ADDRESS . '</strong>&nbsp;<a href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS) . '"><span style="display:'.$hba.'" class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+		</div>
+        <div class="card-body"><?php
+				 	$addresses_query = tep_db_query("select address_book_id, entry_firstname as firstname, entry_lastname as lastname, entry_customer_email as customer_email,  entry_customer_phone as customer_phone, entry_company as company, entry_street_address as street_address, entry_suburb as suburb, entry_city as city, entry_postcode as postcode, entry_state as state, entry_zone_id as zone_id, entry_country_id as country_id from " . TABLE_ADDRESS_BOOK . " where address_book_id = '" . (int)$FSESSION->get('billto') . "'");
+					
+					$addresses = tep_db_fetch_array($addresses_query);
+					$format_id = tep_get_address_format_id($addresses['country_id']);
+					echo tep_address_format($format_id, $addresses, true, '<br>', ', ');
+					//box office address tweak 
+					if (($_SESSION['BoxOffice']== 999)or($_SESSION['customer_country_id']==999))
+					{
+					
+					$_SESSION['billto_array'] = $_SESSION['sendto_array']= $addresses; 
+					}
+					?>
+        <?php //echo tep_address_format($order->billing['format_id'], $order->billing, 1, ' ', '<br />'); ?>
+        </div>
+		</div>
+		</div>
+		<div class="col-md-6">
+		 <div class="card box-shadow">
+        <div class="card-header">
+		<?php echo '<strong>' . HEADING_PAYMENT_METHOD . '</strong>&nbsp;<a href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT) . '">
+		<span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+		</div>
+        <div class="card-body">
+          <?php //echo $order->info['payment_method']; 
+		  
+			if ($order->info['payment_method']=="moneyorder")
+			{
+			echo MODULE_PAYMENT_MONEYORDER_DISPLAY_NAME;
+			}elseif ($order->info['payment_method']=="reservation")
+			{
+			echo MODULE_PAYMENT_RESERVATION_DISPLAY_NAME;
+			echo "<br><br>";
+			echo "<img class=\"img-fluid\" src=\"images/".MODULE_PAYMENT_RESERVATION_IMAGE."\">";
+			}elseif ($order->info['payment_method']=="boxoffice")
+			{
+			echo MODULE_PAYMENT_BOXOFFICE_DISPLAY_NAME;
+			echo "<br><br>";
+			echo "<img class=\"img-fluid\" src=\"images/".MODULE_PAYMENT_BOXOFFICE_IMAGE."\">";
+			}elseif ($order->info['payment_method']=="card_payment")
+			{
+			echo MODULE_PAYMENT_CARD_PAYMENT_DISPLAY_NAME;
+			echo "<br><br>";
+			echo "<img class=\"img-fluid\" src=\"images/".MODULE_PAYMENT_CARD_PAYMENT_IMAGE."\">";
+			}elseif ($order->info['payment_method']=="bor")
+			{
+			echo MODULE_PAYMENT_BOR_DISPLAY_NAME;
+			}elseif ($order->info['payment_method']=="cod")
+			{
+			echo MODULE_PAYMENT_COD_DISPLAY_NAME;
+			echo "<br><br>";
+			echo "<img class=\"img-fluid\" src=\"images/".MODULE_PAYMENT_COD_IMAGE."\">";
+			}elseif ($order->info['payment_method']=="free")
+			{
+			echo MODULE_PAYMENT_FREE_DISPLAY_NAME;
+			}elseif ($order->info['payment_method']=="stripesca")
+			{
+			echo MODULE_PAYMENT_STRIPESCA_DISPLAY_NAME;
+			}elseif ($order->info['payment_method']=="bank_transfer")
+			{
+			echo MODULE_PAYMENT_BANK_TRANSFER_DISPLAY_NAME;
+			echo "<br>";
+			echo "<img class=\"img-fluid\" src=\"images/".MODULE_PAYMENT_BANK_TRANSFER_IMAGE."\">";
+			}elseif ($order->info['payment_method']=="paypal_api")
+			{
+			echo MODULE_PAYMENT_PAYPAL_API_DISPLAY_NAME;
+			}else
+			{
+			echo $order->info['payment_method']; 
+			}
+		?>
+        </div>
+		</div>
+		</div>
+	</div>
+</div>
+<?php
+
+	$form_action=$GLOBALS[$FSESSION->payment];
+	if ($form_action->form_action_url!='' && (!$FSESSION->is_registered('cc_id') || $order->info['total']>0)) 
+	{
+		$form_action_url = $form_action->form_action_url;
+	} 
+	else 
+	{
+		$form_action_url = tep_href_link(FILENAME_CHECKOUT_PROCESS,'', 'SSL');
+	}
+	echo tep_draw_form('checkout_confirmation', $form_action_url, 'post');
+	
+	if (is_array($payment_modules->modules)) 
+	{
+		if ($confirmation = $payment_modules->confirmation()) 
+		{
+			$FSESSION->set('payment_info',$confirmation['title']);
+			?>
+			<h2><?php echo HEADING_PAYMENT_INFORMATION; ?></h2>
+			<div class="row">
+			<?php
+			if (tep_not_null($confirmation['title'])) 
+			{
+				echo '<div class="col-md-6">';
+				echo '<div class="alert payment-info">';
+				if ($order->info['payment_method']=="stripesca")
+				{
+				echo $confirmation['title'];
+				}elseif ($order->info['payment_method']=="square_checkout")
+				{
+				echo '<h3>' . MODULE_PAYMENT_SQUARE_CHECKOUT_TEXT_TITLE . '</h3>';
+				if (MODULE_PAYMENT_SQUARE_CHECKOUT_TESTMODE == 'Test') 
+				{
+				echo '<div class="messageStackError" style="margin:10px">
+				Square Checkout Test Mode
+					 <br>Use test card number 4111111111111111 Visa
+					 <br>Use any expiry date in the future';					
+				echo '<br>Use any CVV number</div>';
+				}
+				}elseif ($order->info['payment_method']=="paypal_api")
+				{
+				echo MODULE_PAYMENT_PAYPAL_API_DISPLAY_NAME;
+				echo "<br>";
+				echo "<img class=\"img-fluid\" src=\"images/".MODULE_PAYMENT_PAYPAL_API_IMAGE."\">";
+				}else{
+					echo $confirmation['title'];
+				}
+				echo '</div>';
+				echo '</div>';
+			}
+			if ($order->info['payment_method']=="paypal_api")
+			{
+				if (isset($confirmation['fields'])) 
+				{
+					echo '<div class="col-md-6">';
+					echo '<div class="alert payment-info">';
+					$fields = '';
+					for ($i=0, $n=sizeof($confirmation['fields']); $i<$n; $i++) 
+					{
+					  $fields .= $confirmation['fields'][$i]['title'] . ' ' . $confirmation['fields'][$i]['field'] . '<br>';
+					}
+					if (strlen($fields) > 4) echo substr($fields,0,-4);
+					echo '</div>';
+					echo '</div>';
+				}
+			}
+			elseif ($order->info['payment_method']=="square_checkout")
+			{			
+				if (tep_not_null($confirmation['title'])) 
+				{	
+					echo '<div class="col-md-6">';
+					echo '<div class="alert payment-info">';
+					echo $confirmation['title'];
+					echo '</div>';
+					echo '</div>';
+				}
+			}elseif ($order->info['payment_method']=="free")
+			{			
+				if (tep_not_null($confirmation['title'])) 
+				{	
+					echo '<div class="col-md-6">';
+					echo '<div class="alert payment-info">';
+					echo $confirmation['title'];
+					echo '</div>';
+					echo '</div>';
+				}
+			}
+			?>
+			</div>
+			<div class="clearfix"></div>  
+			<?php 
+		}
+	}	
+	?>
+	<?php if (FORM_TICKETHOLDER_NAME=='yes')
+	{ 
+	?>
+	<h4><?php echo TEXT_TICKETHOLDER; ?></h4>		  
+	<table width="100%" style="padding:5px">
+		<?php
+		for ($i=0, $n=count($order->products); $i<$n; $i++) 
+		{ 
+			$name=$order->products[$i]['name'];
+			$id=$order->products[$i]['id'];
+		?>
+			<tr>
+			<td width="150"><b><?php echo $name; ?>: </b></td>
+			<td><input  placeholder="<?php echo TICKETHOLDER_NAME; ?>" class="form-control" type="text" size="35" name="ticketholder_name[<?php echo $id; ?>]" id="ticketholder_name[<?php echo $id; ?>]" value="" maxlength="60"></td>
+			</tr>
+		<?php
+		}
+		?>
+	</table>
+	<?php 
+	} 
+	?>
+	<!--comments-->
+	<?php
+	if (tep_not_null($comments)) 
+	{
+	echo '<b>' . HEADING_ORDER_COMMENTS . '</b> <a href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '"><span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+	
+	<!--<h2 class="h3"><?php //echo '<strong>' . HEADING_ORDER_COMMENTS . '</strong>' . tep_draw_button(TEXT_EDIT, 'fa fa-edit', tep_href_link('checkout_payment.php', '', 'SSL'), NULL, NULL, 'pull-right btn-info btn-xs' ); ?></h2>-->
+	<blockquote>
+	<?php echo nl2br(tep_output_string_protected($order->info['comments'])) . tep_draw_hidden_field('comments', $order->info['comments']); ?>
+	</blockquote>
+	<?php
+	}
+	?>
+<!--Add Extra Fields begin-->
+	<?php // start of extra fields
+	//only display title if at least one of the fields holds data
+	if (tep_not_null($field_1) || tep_not_null($field_2) || tep_not_null($field_3) || tep_not_null($field_4) || tep_not_null($other)) {
+	?>
+	<?php echo '<b>'.NEW_FIELDS_HEADING.'</b> <a href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '"><span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?></td>
+	<?php } //end of title display - now display the lines that hold data ?>
+
+  
+	<table width="100%" cellpadding="2">
+	<?php
+	if (tep_not_null($field_1) ){?>
+	<tr>
+	<td width="10%" class="main" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo FIELD_1; ?></b>&nbsp;</td>
+	<td class="main">&nbsp;<?php echo nl2br(tep_output_string_protected($order->info['field_1'])) . tep_draw_hidden_field('field_1', $order->info['field_1']); ?></td>
+	</tr>
+	<?php
+	}
+	if (tep_not_null($field_2) ){?>
+	<tr>
+	<td width="10%" class="main" colspan="2" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo FIELD_2; ?></b>&nbsp;</td>
+	<td class="main">&nbsp;<?php echo nl2br(tep_output_string_protected($order->info['field_2'])) . tep_draw_hidden_field('field_2', $order->info['field_2']); ?></td>
+	</tr>
+	<?php
+	}
+	if (tep_not_null($field_3) ){?>
+	<tr>
+	<td width="10%" class="main" colspan="2" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo FIELD_3; ?></b>&nbsp;</td>
+	<td class="main">&nbsp;<?php echo nl2br(tep_output_string_protected($order->info['field_3'])) . tep_draw_hidden_field('field_3', $order->info['field_3']); ?></td>
+	</tr> 
+	<?php
+	}
+	if (tep_not_null($field_4) ){?>
+	<tr>
+	<td width="10%" class="main" colspan="2" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo FIELD_4; ?></b>&nbsp;</td>
+	<td class="main">&nbsp;<?php echo nl2br(tep_output_string_protected($order->info['field_4'])) . tep_draw_hidden_field('field_4', $order->info['field_4']); ?></td>
+	</tr>
+	<?php
+	}
+	if (tep_not_null($other) ){?>
+	<tr>
+	<td width="10%" class="main" colspan="2" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo FIELD_5; ?></b>&nbsp;</td>
+	<td class="main">&nbsp;<?php echo nl2br(tep_output_string_protected($order->info['other'])) . tep_draw_hidden_field('other', $order->info['other']); ?></td>
+	</tr>
+	<?php
+	}
+	?>
+	</table><!--Add Extra Fields end-->
+
+	<?php
+	if (is_array($payment_modules->modules)) 
+	{
+	$val = $payment_modules->process_button();
+	$values = "";
+	for ($i = 0; $i < strlen($val); $i++) {
+	$values .= ord($val[$i]) . ",";
+		}
+		echo "<script language='javascript'>";
+		echo " var hidden_values='" . $values . "';";
+		echo "</script>";
+	}
+	echo '<div id="values"></div>';
+	  
+	if (!$USER_BARRED) 
+	{ 
+	?>	  
+		<style>
+		.confirm{float:right;/* position:relative;top:-400px; */}
+		@media (max-width: 480px) {
+		.confirm{float:right;/* position:relative;top:0px; */}
+		.tooltip-wrapper {
+			  display: inline-block; /* display: block works as well */
+			  margin: 50px; /* make some space so the tooltip is visible */
+			}
+		}
+			.tooltip-wrapper .btn[disabled] {
+			  /* don't let button block mouse events from reaching wrapper */
+			  pointer-events: none;
+			}
+
+			.tooltip-wrapper.disabled {
+			  /* OPTIONAL pointer-events setting above blocks cursor setting, so set it here */
+			  cursor: not-allowed;
+			}
+		
+		</style>
+		<?php
+		if (ADD_CONDITIONS == 'true') 
+		{
+		echo '	
+		<div class="tooltip-wrapper disabled confirm" data-title="Accept terms?">
+		<button id="checkout_button" class="btn btn-primary btn-block btn-lg " type="submit" disabled>
+        <span id="loading_spinner" style="display:none;">
+            <i class="fa fa-spinner fa-spin"></i> 
+			'.IMAGE_BUTTON_PROCESS_ORDER.'
+        </span>
+        <span id = "button_text">
+			'.IMAGE_BUTTON_CONFIRM_ORDER.'
+		</span>	
+        </button>
+		</div>
+		';
+		?>
+
+		<!--Add Conditions-->
+			<br class="clearfloat">
+			<div class="confirm">
+			<b><?php echo CONDITION_AGREEMENT; ?></b>
+			<?php echo tep_draw_checkbox_field('agree','true', false, 'id="checkout_agree"'); ?></div>
+			<br class="clearfloat">
+			<div id="dialog_show" class="confirm"><?php echo CONDITIONS; ?></div>
+			<!-- MATC <dialog> -->
+			<!-- Modal -->
+			<dialog id="dialog_window">
+				<div>
+					<div class="modal-body">
+					<h2><?php echo CONDITIONS; ?></h2>
+					<?php   
+					$content_query=tep_db_query("select description from main_page_description where page_name='TandC'");
+					$content_result = tep_db_fetch_array($content_query);
+					if($content_result)
+					{
+					echo $content_result['description'];
+					}else
+					{
+					?>
+					<p><strong><?php echo HEADING_TITLE ?></strong></p>
+					<p>
+					<?php echo TEXT_POPUP_CONDITIONS ?></p>
+					<p>
+					<?php echo TEXT_POPUP_CONDITIONS_GUIDE ?></p>
+					<?php 
+					}
+					?>
+					</div>
+				  <div class="modal-footer">
+					<button id="dialog_exit" class="btn btn-primary"><?php echo TEXT_CLOSE ?></button>
+				  </div>
+				</div>
+			</dialog>
+			<script>
+			(function() {
+			 var dialog = document.getElementById('dialog_window');
+			  document.getElementById('dialog_show').onclick = function() {
+				dialog.show();
+			  };
+			  document.getElementById('dialog_exit').onclick = function() {
+				dialog.close();
+				return false;
+			  };
+			})();
+			</script>
+			<!-- MATC <dialog> -->
+			<!-- eof Add Conditions-->
+			<?php  
+		}else
+			{
+		echo '	
+		<button id="checkout_button" style="float:right" class="btn btn-primary btn-block btn-lg" type="submit">
+        <span id="loading_spinner" style="display: none;">
+        <i class="fa fa-spinner fa-spin"></i> 
+			'.IMAGE_BUTTON_PROCESS_ORDER.'
+        </span>
+        <span id = "button_text">
+			'.IMAGE_BUTTON_CONFIRM_ORDER.'
+		</span>	
+        </button>';
+			}
+	} //eof user barred
+	//start <script> for 'processing'
+	?>
+	<script>
+			var target_form = document.forms.checkout_confirmation;
+			var button_to_use = document.getElementById('checkout_button');
+						
+			target_form.addEventListener('submit', function(e) {
+				e.preventDefault();
+				button_to_use.disabled=true;			
+							
+			  document.getElementById('checkout_button').setAttribute('disabled', 'disabled');
+			  document.getElementById('loading_spinner').style.display = 'inline-block';
+			  document.getElementById('button_text').style.display = 'none';
+              target_form.submit();
+
+			});
+	</script>
+	  <div class="clearfix"></div>
+	  <br class="clearfloat">
+	  <div class="bs-stepper">
+            <div class="bs-stepper-header">
+              <div class="step" data-target="#delivery">
+			   <a href="<?php echo tep_href_link('checkout_shipping.php', '', 'SSL'); ?>">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">1</span>
+                  <span class="bs-stepper-label"><?php echo CHECKOUT_BAR_DELIVERY; ?></span>
+                </button>
+				</a>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#payment">
+			  <a href="<?php echo tep_href_link('checkout_payment.php', '', 'SSL'); ?>">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">2</span>
+                  <span class="bs-stepper-label"><?php echo CHECKOUT_BAR_PAYMENT; ?></span>
+                </button>
+				</a>
+              </div>
+              <div class="line"></div>
+              <div class="step active" data-target="#confirm">
+                <button type="button" class="btn step-trigger" disabled="disabled">
+                  <span class="bs-stepper-circle">3</span>
+                  <span class="bs-stepper-label"><?php echo CHECKOUT_BAR_CONFIRMATION; ?></span>
+                </button>
+              </div>
+            </div>
+          </div>
+	</form>
+	</div>

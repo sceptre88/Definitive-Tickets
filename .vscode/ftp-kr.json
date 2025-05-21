@@ -1,0 +1,17 @@
+{
+    "host": "ftp.definitivetickets.com",
+    "username": "ftptixadmin@definitivetickets.com",
+    "password": "zk@FO2y0T1mdD7Xv",
+    "remotePath": "/",
+    "localPath":"d:/Definitive Solutions/Clients/Definitive Tickets/website",
+    "protocol": "ftp",
+    "port": 21,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": false,
+    "autoDownload": false,
+    "ignore": [
+        ".git",
+        "/.vscode"
+    ]
+}

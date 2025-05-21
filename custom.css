@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+#featured {
+	margin-top: 80px;
+}
+
+/* added for nested_categories - enlarge picture for each event */
+.rbe_eventlist .container .img-fluid {
+	height: 100% !important;
+}
+
+

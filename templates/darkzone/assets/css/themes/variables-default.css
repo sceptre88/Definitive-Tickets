@@ -1,0 +1,92 @@
+:root {
+	--color-primary: #0c2e8a;
+	--color-primary-rgb: 12, 46, 138;
+	--color-primary-dark: #0c2e8a;
+	--color-primary-dark-rgb: 12, 46, 138;
+	--color-secondary: #50d8af;
+	--color-secondary-rgb: 80, 216, 175;
+	--color-links: var(--color-white); 
+	--color-links-hover: var(--color-secondary);
+	--header-color:  var(--color-white);
+	--footer-content-color: #EFF5F7;
+	--color-footer-content-links-rgb: var(--color-primary-rgb);
+	--color-footer-content-links-hover-rgb: var(--color-secondary-rgb);
+	--footer-legal-color: var(--color-primary-dark);
+	--button-hero: var(--color-primary);
+	--button-hero-rgb: var(--color-primary-rgb);
+	--primary-rgb: var(--color-primary-rgb);  /*Primary RGB*/
+	--header-text-color: var(--color-primary);
+	--header-text-color-span: var(--color-secondary);
+	--nav-toggle: var(--color-primary);
+	--footer-legal: var(--color-secondary);
+	--footer-legal-rgb: var(--color-primary-rgb);
+	--footer-copyright: var(--color-secondary);
+	--scroll-top: var(--color-secondary);
+	--scroll-top-hover: var(--color-primary-rgb);
+	--nav-color: var(--color-primary-dark);
+	--nav-hover-color: var(--color-primary-dark);
+	--nav-hover-underline: var(--color-secondary);
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--color-primary);
+  --bs-btn-hover-border-color: var(--color-primary);
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--color-secondary);
+  --bs-btn-active-border-color: var(--color-primary);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0d6efd;
+  --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.header {
+  box-shadow: 0px 2px 20px rgba(var(--color-black-rgb), 0.1);
+}
+.section-header h2 {
+  color: var(--color-primary);
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  text-align:left;
+  font-weight: 700;
+}
+.header .logo h1 {
+  font-size: 42px;
+  font-weight: 700;
+  text-shadow: 0px 0px rgba(var(--color-black-rgb), 0.1)
+}
+.header .logo h1 span {
+  font-weight: 700;
+}
+
+.btn-primary {
+  --bs-btn-active-bg: var(--color-primary);
+  --bs-btn-active-border-color: #0a53be;
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #1D1D1D;
+  padding: 0 0 30px 0;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+#footer .credits a {
+  color: #0c2e8a;
+}

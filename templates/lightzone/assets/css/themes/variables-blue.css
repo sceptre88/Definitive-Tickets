@@ -1,0 +1,29 @@
+:root {
+    --color-primary: #468DE5;
+    --color-primary-rgb: 70, 141, 229;
+    --color-primary-dark: #1F669F;
+	--color-primary-dark-rgb: 31, 102, 159;
+	--color-secondary-rgb: 143, 183, 229;
+    --color-secondary: #8FB7E5;
+	--color-links: var(--color-primary); 
+	--color-links-hover: var(--color-primary-dark);
+	--header-color:  var(--color-primary-dark);
+	--footer-content-color: #468DE5;
+	--color-footer-content-links-rgb: var(--color-white-rgb);
+	--color-footer-content-links-hover-rgb: var(--color-white-rgb);
+	--footer-legal-color: var(--color-primary-dark);
+	--button-hero: var(--color-primary);
+	--button-hero-rgb: var(--color-primary-rgb);
+	--primary-rgb: var(--color-primary-rgb);  /*Primary RGB*/
+	--header-text-color: var(--color-white);
+	--header-text-color-span: var(--color-primary);
+	--nav-toggle: var(--color-white);
+	--footer-legal: var(--color-primary);
+	--footer-legal-rgb: var(--color-primary-rgb);
+	--footer-copyright: var(--color-primary);
+	--scroll-top: var(--color-primary);
+	--scroll-top-hover: var(--color-primary-rgb);
+	--nav-color: var(--color-white);
+	--nav-hover-color: var(--color-white);
+	--nav-hover-underline: var(--color-primary);
+}

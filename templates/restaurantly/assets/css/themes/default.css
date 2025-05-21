@@ -1,0 +1,847 @@
+/**
+* Template Name: Restaurantly - v3.5.0
+* Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #0c0b09;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d9ba85;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+}
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: #212529;
+  --bs-table-striped-bg: #726e6e;
+  --bs-table-active-color: #212529;
+  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+  --bs-table-hover-color: #212529;
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+  color: #212529;
+  border-color: #dee2e6;
+}
+.btn-primary2 {
+    color: #fff;
+    background-color: #cda45e;
+    border-color: transparent
+}
+
+.btn-primary2:hover,
+.btn-primary2:focus,
+.btn-primary2:active,
+.btn-primary2.active {
+    color: #fff;
+    background-color: #555;
+	border-color:#726e6e
+}
+.mybreadcrumb {
+  background-color: #726e6e;
+}
+#dialog_window {
+background-color: #0c0b09;
+color: #fff; 
+border: 1px solid #d9ba85;  
+}
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  background: #1a1814;
+}
+
+#preloader:before {
+  border: 6px solid #1a1814;
+  border-top-color: #cda45e;
+  border-bottom-color: #cda45e;
+}
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  border: 2px solid #cda45e;
+}
+.back-to-top i {
+  color: #cda45e;
+}
+.back-to-top:hover {
+  background: #cda45e;
+  color: #1a1814;
+}
+.back-to-top:hover i {
+  color: #444444;
+}
+
+#topbar .contact-info i {
+  color: #d9ba85;
+}
+#topbar .contact-info i span {
+  color: #fff;
+}
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  background: rgba(12, 11, 9, 0.6);
+  border-bottom: 1px solid rgba(12, 11, 9, 0.6);
+}
+#header.header-scrolled {
+  top: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid #37332a;
+}
+
+#header .logo a {
+  color: #fff;
+}
+#header #logo h1 a {
+  color: #fff;
+}
+
+#header #logo h1 a span {
+  color: #fff;
+}
+/*--------------------------------------------------------------
+# Book a table button Menu
+--------------------------------------------------------------*/
+.book-a-table-btn {
+  border: 2px solid #cda45e;
+  color: #fff;
+}
+.book-a-table-btn:hover {
+  background: #cda45e;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbar a, .navbar a:focus {
+  color: #fff;
+}
+.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+  color: #d9ba85;
+}
+.navbar .dropdown ul {
+  background: #cda45e;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+.navbar .dropdown ul a {
+  color: #fff;
+}
+.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
+  color: #fff;
+}
+
+
+.dropdown-item {
+  color: #212529;
+  background-color: #cda45e;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #fff;
+  background-color: #e9c893;
+}
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #e9c893;
+}
+.dropdown-item.disabled, .dropdown-item:disabled {
+  color: #adb5bd;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+ span#total_price{
+    color: #fff;
+}
+/*  span#total_seats{
+    color: #fff;
+} */
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #ffffff;
+}
+
+.mobile-nav-toggle.bi-x {
+  color: #ffffff;
+}
+
+.navbar-mobile {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-mobile ul {
+  background-color: #fff;
+  border: solid black 1px;
+}
+
+.navbar-mobile a {
+  color: #fff;
+  background: #cda45e;
+}
+
+.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+  color: #000;
+  background: #ccc;
+}
+
+.navbar-mobile .dropdown ul {
+  background: #cda45e;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+.navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
+  color: #000;
+  background: #ccc;
+}
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero:before {
+  background: rgba(0, 0, 0, 0.5);
+}
+#hero h1 {
+  color: #fff;
+}
+#hero h1 span {
+  color: #cda45e;
+}
+#hero h2 {
+  color: #eee;
+}
+#hero .btn-menu, #hero .btn-book {
+  color: white;
+  border: 2px solid #cda45e;
+}
+#hero .btn-menu:hover, #hero .btn-book:hover {
+  background: #cda45e;
+  color: #fff;
+}
+#hero .play-btn {
+  background: radial-gradient(#cda45e 50%, rgba(205, 164, 94, 0.4) 52%);
+}
+#hero .play-btn::after {
+  border-left: 15px solid #fff;
+}
+#hero .play-btn::before {
+  border: 5px solid rgba(205, 164, 94, 0.7);
+  background: rgba(198, 16, 0, 0);
+}
+#hero .play-btn:hover::after {
+  border-left: 15px solid #cda45e;
+}
+#hero .play-btn:hover::before {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+}
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+
+.section-bg {
+  background-color: #1a1814;
+}
+
+.section-title h2 {
+  color: #aaaaaa;
+}
+.section-title h2::after {
+  background: rgba(255, 255, 255, 0.2);
+}
+.section-title p {
+  color: #cda45e;
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.breadcrumbs {
+  background: #1d1b16;
+}
+.breadcrumbs ol li + li::before {
+  color: #37332a;
+}
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about:before {
+  background: rgba(0, 0, 0, 0.8);
+}
+.about .about-img img {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+.about .about-img::before {
+  border-left: 5px solid #cda45e;
+  border-top: 5px solid #cda45e;
+}
+.about .about-img::after {
+  border-right: 5px solid #cda45e;
+  border-bottom: 5px solid #cda45e;
+}
+.about .content ul i {
+  color: #cda45e;
+}
+
+/*--------------------------------------------------------------
+# Why Us
+--------------------------------------------------------------*/
+.why-us .box {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  background: #1a1814;
+}
+.why-us .box span {
+  color: #cda45e;
+}
+.why-us .box h4 {
+  color: rgba(255, 255, 255, 0.8);
+}
+.why-us .box p {
+  color: #aaaaaa;
+}
+.why-us .box:hover {
+  background: #cda45e;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+}
+.why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Menu Section
+--------------------------------------------------------------*/
+
+.menu #menu-flters li:hover, .menu #menu-flters li.filter-active {
+  color: #cda45e;
+}
+.menu .menu-img {
+  border: 5px solid rgba(255, 255, 255, 0.2);
+}
+.menu .menu-content a {
+  background: #1a1814;
+  color: white;
+}
+.menu .menu-content a:hover {
+  color: #cda45e;
+}
+.menu .menu-content span {
+  background: #1a1814;
+  color: #cda45e;
+}
+.menu .menu-ingredients {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/*--------------------------------------------------------------
+# Specials
+--------------------------------------------------------------*/
+.specials .nav-link {
+  color: #fff;
+  border-right: 2px solid #cda45e;
+}
+.specials .nav-link:hover {
+  color: #cda45e;
+}
+.specials .nav-link.active {
+  color: #1a1814;
+  background: #cda45e;
+  border-color: #cda45e;
+}
+.specials .nav-link:hover {
+  border-color: #cda45e;
+}
+.specials .details h3 {
+  color: #fff;
+}
+.specials .details p {
+  color: #aaaaaa;
+}
+
+/*--------------------------------------------------------------
+# Events
+--------------------------------------------------------------*/
+.events::before {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.events .section-title h2 {
+  color: #fff;
+}
+.events .events-carousel {
+  background: rgba(255, 255, 255, 0.08);
+}
+.events .event-item {
+  color: #fff;
+}
+.events .event-item h3 {
+  color: #cda45e;
+}
+.events .event-item .price span {
+  border-bottom: 2px solid #cda45e;
+}
+.events .event-item ul i {
+  color: #cda45e;
+}
+.events .swiper-pagination .swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.events .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #cda45e;
+}
+
+/*--------------------------------------------------------------
+# Book A Table
+--------------------------------------------------------------*/
+.book-a-table .php-email-form .validate {
+  color: red;
+}
+.book-a-table .php-email-form .error-message {
+  color: #fff;
+  background: #ed3c0d;
+}
+.book-a-table .php-email-form .sent-message {
+  color: #fff;
+  background: #18d26e;
+}
+.book-a-table .php-email-form .loading:before {
+  border: 3px solid #cda45e;
+  border-top-color: #1a1814;
+}
+.book-a-table .php-email-form input, .book-a-table .php-email-form textarea {
+  background: #0c0b09;
+  border-color: #625b4b;
+  color: white;
+}
+.book-a-table .php-email-form input::-webkit-input-placeholder, .book-a-table .php-email-form textarea::-webkit-input-placeholder {
+  color: #a49b89;
+}
+.book-a-table .php-email-form input::-moz-placeholder, .book-a-table .php-email-form textarea::-moz-placeholder {
+  color: #a49b89;
+}
+.book-a-table .php-email-form input::placeholder, .book-a-table .php-email-form textarea::placeholder {
+  color: #a49b89;
+}
+.book-a-table .php-email-form input:focus, .book-a-table .php-email-form textarea:focus {
+  border-color: #cda45e;
+}
+.book-a-table .php-email-form button[type=submit] {
+  background: #cda45e;
+  color: #fff;
+}
+.book-a-table .php-email-form button[type=submit]:hover {
+  background: #d3af71;
+}
+
+/*--------------------------------------------------------------
+# Testimonials
+--------------------------------------------------------------*/
+.testimonials .testimonial-item .testimonial-img {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+}
+.testimonials .testimonial-item h3 {
+  color: white;
+}
+.testimonials .testimonial-item h4 {
+  color: rgba(255, 255, 255, 0.6);
+}
+.testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
+  color: #d3af71;
+  font-size: 26px;
+}
+.testimonials .testimonial-item p {
+  background: #26231d;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.testimonials .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #cda45e;
+}
+
+/*--------------------------------------------------------------
+# Gallery
+--------------------------------------------------------------*/
+.gallery .gallery-item {
+  border-right: 3px solid #454035;
+  border-bottom: 3px solid #454035;
+}
+/*--------------------------------------------------------------
+# Chefs
+--------------------------------------------------------------*/
+.chefs .member {
+  background: #343a40;
+}
+
+.chefs .member .member-info-content h4 {
+  color: #fff;
+}
+.chefs .member .member-info-content span {
+  color: #fff;
+}
+.chefs .member .social a {
+  color: #fff;
+}
+.chefs .member .social a:hover {
+  color: #cda45e;
+}
+.chefs .member:hover .member-info {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 212, 255, 0) 100%);
+}
+
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info i {
+  background: #cda45e;
+}
+.contact .info p {
+  color: #bab3a6;
+}
+.contact .php-email-form .validate {
+  color: red;
+}
+.contact .php-email-form .error-message {
+  color: #fff;
+  background: #ed3c0d;
+}
+.contact .php-email-form .sent-message {
+  color: #fff;
+  background: #18d26e;
+}
+.contact .php-email-form .loading:before {
+  border: 3px solid #cda45e;
+  border-top-color: #1a1814;
+}
+.contact .php-email-form input, .contact .php-email-form textarea {
+  background: #0c0b09;
+  border-color: #625b4b;
+  color: white;
+}
+.contact .php-email-form input::-webkit-input-placeholder, .contact .php-email-form textarea::-webkit-input-placeholder {
+  color: #a49b89;
+}
+.contact .php-email-form input::-moz-placeholder, .contact .php-email-form textarea::-moz-placeholder {
+  color: #a49b89;
+}
+.contact .php-email-form input::placeholder, .contact .php-email-form textarea::placeholder {
+  color: #a49b89;
+}
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+  border-color: #cda45e;
+}
+.contact .php-email-form button[type=submit] {
+  background: #cda45e;
+  color: #fff;
+}
+.contact .php-email-form button[type=submit]:hover {
+  background: #d3af71;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: black;
+  color: #fff;
+}
+#footer .footer-top {
+  background: #0c0b09;
+  border-top: 1px solid #37332a;
+  border-bottom: 1px solid #28251f;
+}
+#footer .footer-top .footer-info p {
+  color: #fff;
+}
+#footer .footer-top .social-links a {
+  background: #28251f;
+  color: #fff;
+}
+#footer .footer-top .social-links a:hover {
+  background: #cda45e;
+  color: #fff;
+}
+#footer .footer-top h4 {
+  color: #fff;
+}
+#footer .footer-top .footer-links ul i {
+  color: #cda45e;
+}
+#footer .footer-top .footer-links ul a {
+  color: #fff;
+}
+#footer .footer-top .footer-links ul a:hover {
+  color: #cda45e;
+}
+#footer .footer-top .footer-newsletter form {
+  background: #28251f;
+  border: 1px solid #454035;
+}
+#footer .footer-top .footer-newsletter form input[type=email] {
+  background: #28251f;
+  color: white;
+}
+#footer .footer-top .footer-newsletter form input[type=submit] {
+  background: #cda45e;
+  color: #fff;
+}
+#footer .footer-top .footer-newsletter form input[type=submit]:hover {
+  background: #d3af71;
+}
+#footer .credits {
+  color: #fff;
+}
+
+ #featured {
+     background: none;
+}
+
+
+.cart-text,.productListing-heading{
+	color:#fff
+}
+/* MODAL FOR TERMS AND CONDITIONS AT CHECKOUT */
+div#tandc_modal { 
+	-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.45);
+	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.45);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.45); 
+    background-color: #cda45e!important;
+	border-color:#fff!important;
+}
+
+/*START DISCOUNT BOX THEME*/
+div#ticket_discount { 
+	-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.45);
+	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.45);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.45); 
+/*	background-color: #e28913!important;*/
+    background-color: #cda45e!important;
+	border-color:#fff!important;
+}
+div#ticket_discount h5{color: white;}
+ul#discount {margin-left:0px!important;}
+ul#discount li {border: 1px solid #ccc; padding: 5px; background: #333333; height: auto!important; margin-left:0!important; color: #C4C4C4;}
+/*basic*/
+/*ul#discount li { padding: 3px;  height: auto!important; margin-left:0!important;}*/
+.selectticket {font-size: 19px; color: white;}
+#discount_products_name{color: white;}
+#discount_show_name{color: white;}
+li#discount_choice_text {color: white!important; margin-left: 0!important;}
+#kill_discount:hover {background-color: normal!important;color: black!important;}
+ /*END DISCOUNT BOX*/
+ 
+
+
+.btn-primary {
+	color: #000;
+
+	border-color: transparent;
+	background-color: #cda45e;
+    /* background: -webkit-linear-gradient(90deg, rgb(253,218,134), rgb(197,114,13), rgb(253,218,134) 100%), rgb(208, 140, 37);
+    background: -moz-linear-gradient(90deg, rgb(253,218,134), rgb(197,114,13), rgb(253,218,134) 100%), rgb(208, 140, 37);
+    background: linear-gradient(180deg, rgb(253,218,134), rgb(197,114,13), rgb(253,218,134) 100%), rgb(208, 140, 37);       */  
+
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+	color: #000;
+	background-color: #c0c0c0;
+	border-color: #cda45e;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+/*	background-color: #e28913;*/
+	background-color: #cda45e;
+	color:#000;
+}
+ .smallText a:hover {
+     color: #fff 
+}
+.table-hover tbody tr:hover {
+  color: #212529;
+  background-color: #efefef;
+}
+ .active .bs-stepper-circle {
+     background-color: #cda45e;
+}
+
+.table-primary tbody + tbody {
+  border-color: #7abaff;
+}
+
+.table-hover .table-primary:hover {
+  background-color: #9fcdff;
+}
+
+.table-hover .table-primary:hover > td,
+.table-hover .table-primary:hover > th {
+  background-color: #9fcdff;
+}
+ 
+ 
+.btn-primary-dark
+{
+	color:#fff;
+	padding:5px;
+	background-color:#555;
+}
+
+ ul#ajax_cart li span.cht{
+
+    color:#555555;
+
+}
+ ul#ajax_cart li span.pn{
+
+    color:#000000;
+
+}
+
+ ul#ajax_cart li span.pp{
+
+    color:#000000;
+
+}
+
+ #ga_listing .effects{
+     border: 1px solid #000;
+     background: #000;
+     color: #fff;
+}
+ #ga_listing .effects:hover{
+     background: gray;
+     color: #fff;
+     border: 1px solid #f7f3f3;
+}
+
+.alert-success {
+  color: #000;
+  background-color: #eda203;
+  border-color: #fff;
+}
+
+.alert-success hr {
+  border-top-color: #b1dfbb;
+}
+
+.alert-success .alert-link {
+  color: #0b2e13;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert-info hr {
+  border-top-color: #abdde5;
+}
+
+.alert-info .alert-link {
+  color: #062c33;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #ffff00;
+  border-color: #ffeeba;
+}
+
+.alert-warning hr {
+  border-top-color: #ffe8a1;
+}
+
+.alert-warning .alert-link {
+  color: #533f03;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-danger hr {
+  border-top-color: #f1b0b7;
+}
+
+.alert-danger .alert-link {
+  color: #491217;
+}
+ .moduleRowOver {
+     background-color: #495057;
+     cursor: pointer 
+}
+ .moduleRowSelected {
+     background-color: #495057 
+}
+ .bs-stepper .step-trigger {
+     color: #fff;
+ }
+
+
+
+
+
+
+ .list-group-item {
+	 background-color:#0c0b09;
+	 color: #fff;
+	 border:1px solid #cda45e;
+	 
+}
+.card-header {
+  background-color: #000;
+  border-color: #d9ba85;
+}
+.card {
+  background-color: #000;
+  border-color: #d9ba85;
+}
+.card-footer {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 255, 0.125);
+}

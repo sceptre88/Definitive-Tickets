@@ -1,0 +1,5 @@
+[13-Oct-2023 00:57:25 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4096 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/datatables/lib/Ext.php on line 193
+[13-Oct-2023 01:01:12 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/datatables/lib/Database/Driver/MysqlResult.php on line 58
+[13-Oct-2023 01:04:04 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/datatables/lib/Database/Driver/MysqlResult.php on line 58
+[13-Oct-2023 01:05:09 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/datatables/lib/Database/Driver/MysqlResult.php on line 58
+[13-Oct-2023 01:05:22 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/tixadmin/ifyac.definitivetickets.org/ifyacadmin/datatables/lib/Database/Driver/MysqlResult.php on line 58
